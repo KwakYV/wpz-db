@@ -1,0 +1,189 @@
+databaseChangeLog:
+  - changeSet:
+      id: before_create_table.ORGANIZATION
+      author: KwakYV
+      context: postgresql
+      labels: organization_table
+      changes:
+        - tagDatabase:
+            tag: before_create_organization_table
+
+  - changeSet:
+      id: create_table.ORGANIZATION
+      author: KwakYV
+      context: postgresql
+      labels: organization_table
+      changes:
+        - createTable:
+            tableName: organization
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: org_name
+                  type: varchar(256)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: desc
+                  type: varchar(256)
+
+  - changeSet:
+      id: before_create_table.BUILDING
+      author: KwakYV
+      context: postgresql
+      labels: building_table
+      changes:
+        - tagDatabase:
+            tag: before_create_building_table
+  - changeSet:
+      id: create_table.BUILDING
+      author: KwakYV
+      context: postgresql
+      labels: building_table
+      changes:
+        - createTable:
+            tableName: building
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: obj_name
+                  type: varchar(256)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: desc
+                  type: varchar(256)
+              - column:
+                  name: org_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: before_create_table.PARKING
+      author: KwakYV
+      context: postgresql
+      labels: parking_table
+      changes:
+        - tagDatabase:
+            tag: before_create_parking_table
+  - changeSet:
+      id: create_table.PARKING
+      author: KwakYV
+      context: posgresql
+      labels: parking_table
+      changes:
+        - createTable:
+            tableName: parking
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  autoIncrement: true
+                  constrains:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: schema_path
+                  type: varchar(256)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: zone_number
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: obj_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: before_create_table.Device
+      author: KwakYV
+      context: postgresql
+      labels: device_table
+      changes:
+        - tagDatabase:
+            tag: before_create_device_table
+  - changeSet:
+      id: create_table.DEVICE
+      author: KwakYV
+      context: postgresql
+      labels: device_table
+      changes:
+        - createTable:
+            tableName: device
+            columns:
+              - column:
+                  name: id
+                  type: biserial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: dev_number
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: zone_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: before_create_table.MESSAGE
+      author: KwakYV
+      context: postgresql
+      labels: message_table
+      changes:
+        - tagDatabase:
+            tag: before_create_message_table
+  - changeSet:
+      id: create_table.MESSAGE
+      author: KwakYV
+      context: postgresql
+      labels: message_table
+      changes:
+        - createTable:
+            tableName: message
+            columns:
+              - column:
+                  name: id
+                  type: biserial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: dev_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_dt
+                  type: timestamp
+                  constrints:
+                    nullable: false
