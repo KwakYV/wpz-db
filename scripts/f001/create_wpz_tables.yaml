@@ -15,6 +15,7 @@ databaseChangeLog:
       labels: organization_table
       changes:
         - createTable:
+            schemaName: wpz
             tableName: organization
             columns:
               - column:
@@ -31,7 +32,7 @@ databaseChangeLog:
                     unique: true
                     nullable: false
               - column:
-                  name: desc
+                  name: org_desc
                   type: varchar(256)
 
   - changeSet:
@@ -49,6 +50,7 @@ databaseChangeLog:
       labels: building_table
       changes:
         - createTable:
+            schemaName: wpz
             tableName: building
             columns:
               - column:
@@ -65,7 +67,7 @@ databaseChangeLog:
                     unique: true
                     nullable: false
               - column:
-                  name: desc
+                  name: obj_desc
                   type: varchar(256)
               - column:
                   name: org_id
@@ -88,13 +90,14 @@ databaseChangeLog:
       labels: parking_table
       changes:
         - createTable:
+            schemaName: wpz
             tableName: parking
             columns:
               - column:
                   name: id
                   type: bigserial
                   autoIncrement: true
-                  constrains:
+                  constraints:
                     primaryKey: true
                     nullable: false
               - column:
@@ -128,11 +131,12 @@ databaseChangeLog:
       labels: device_table
       changes:
         - createTable:
+            schemaName: wpz
             tableName: device
             columns:
               - column:
                   name: id
-                  type: biserial
+                  type: bigserial
                   autoIncrement: true
                   constraints:
                     primaryKey: true
@@ -163,11 +167,12 @@ databaseChangeLog:
       labels: message_table
       changes:
         - createTable:
+            schemaName: wpz
             tableName: message
             columns:
               - column:
                   name: id
-                  type: biserial
+                  type: bigserial
                   autoIncrement: true
                   constraints:
                     primaryKey: true
@@ -185,5 +190,5 @@ databaseChangeLog:
               - column:
                   name: created_dt
                   type: timestamp
-                  constrints:
+                  constraints:
                     nullable: false

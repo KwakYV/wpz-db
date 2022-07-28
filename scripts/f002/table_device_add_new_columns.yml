@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: before_add_new_columns_device
+      author: KwakYV
+      context: postgresql
+      labels: organization_table
+      changes:
+        - tagDatabase:
+            tag: before_add_new_columns_device
+
+  - changeSet:
+      id: add_new_columns.device
+      author: KwakYV
+      context: postgresql
+      labels: device_table
+      changes:
+        - addColumn:
+            schemaName: wpz
+            tableName: device
+            columns:
+              - column:
+                  name: x_coord
+                  type: int
+                  defaultValue: 10
+              - column:
+                  name: y_coord
+                  type: int
+                  defaultValue: 20

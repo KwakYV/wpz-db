@@ -1,3 +1,0 @@
-databaseChangeLog:
-  - include:
-      file: f001/create_wpz_tables.yaml
