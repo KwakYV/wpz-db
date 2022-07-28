@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: f001/create_wpz_tables.yaml
+  - include:
+      file: f002/table_device_add_new_columns.yml
